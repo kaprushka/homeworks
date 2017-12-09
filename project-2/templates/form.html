@@ -1,0 +1,40 @@
+<form action="/send" method="GET">
+    <div style="margin-bottom: 1em;">
+		<div style="margin-bottom: 0.5em;"><b>ФИО:</b></div>
+		<div><input type="text" name="fio"></div>
+	</div>
+	<div style="margin-bottom: 1em;">
+		<div style="margin-bottom: 0.5em;"><b>Пол:</b></div>
+		<div><input type="radio" id="male" name="sex" value="Мужской" checked="checked"><label for="male">Мужской</label></div>
+		<div><input type="radio" id="female" name="sex" value="Женский"><label for="female">Женский</label></div>
+	</div>
+	<div style="margin-bottom: 1em;">
+		<div style="margin-bottom: 0.5em;"><b>Возраст:</b></div>
+		<div><input type="text" name="age"></div>
+	</div>
+	<div style="margin-bottom: 1em;">
+		<div style="margin-bottom: 0.5em;"><b>В каком городе Вы родились?</b></div>
+		<div><input type="text" name="home-town"></div>
+	</div>
+	<div style="margin-bottom: 1em;">
+		<div style="margin-bottom: 0.5em;"><b>В каком городе Вы провели большую часть жизни?</b></div>
+		<div><input type="text" name="popular-town"></div>
+	</div>
+	<div style="margin-bottom: 1em;">
+		<div style="margin-bottom: 0.5em;"><b>Уровень образования:</b></div>
+		<div><input type="radio" id="middle" name="education" value="Среднее" checked="checked"><label for="middle">Среднее</label></div>
+		<div><input type="radio" id="special-middle" name="education" value="Среднее специальное"><label for="special-middle">Среднее специальное</label></div>
+		<div><input type="radio" id="half-high" name="education" value="Неполное высшее"><label for="half-high">Неполное высшее</label></div>
+		<div><input type="radio" id="high" name="education" value="Высшее"><label for="high">Высшее</label></div>
+	</div>
+	<div style="margin-bottom: 1em;">
+		<div style="margin-bottom: 0.5em;"><b>Как Вы назовете этот предмет?</b></div>
+		<div><img src="{{url_for('static', filename='shell.jpg')}}" /></div>
+		<div><input type="text" name="image-name"></div>
+	</div>
+	<div style="margin-bottom: 1em;">
+		<div style="margin-bottom: 0.5em;"><b>На какой гласный Вы ставите ударение в слове, которое написали в прошлом вопросе?</b></div>
+		<div><input type="text" name="vowel"></div>
+	</div>
+	<div><input type="submit" value="Отправить"></div>
+</form>

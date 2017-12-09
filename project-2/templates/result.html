@@ -1,0 +1,28 @@
+<style type="text/css">
+	body {
+		font-family: Arial;
+	}
+	tr:hover td {
+		background: #eee;
+	}
+</style>
+<table style="width: 100%; text-align: center; border: black solid 1px; border-collapse: collapse;">
+	<caption style="font-size: 2em; font-weight: bold; margin-bottom: 0.3em;">Результаты поиска</caption>
+	<tr style="border: black solid 1px; font-size: 1.1em; line-height: 1.5em;">
+		<th>ФИО</th>
+		<th>Пол</th>
+		<th>Возраст</th>
+		<th>Родной город</th>
+		<th>Основной город</th>
+		<th>Образование</th>
+		<th>Название картинки</th>
+		<th>Ударный гласный</th>
+	</tr>
+	{% for form in forms %}
+	<tr style="line-height: 1.5em;">
+		{% for key, value in form.items() %}
+		<td>{{ value }}</td>
+		{% endfor %}
+	</tr>
+	{% endfor %}
+</table>
