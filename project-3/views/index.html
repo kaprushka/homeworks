@@ -1,0 +1,57 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Дореволюциозация слов</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+      {% include 'header.html' %}
+      
+
+    <main role="main" class="container" style="padding-top:80px">
+        <div class="container">
+          <div class="row">
+<div class="col-12 col-sm-12 col-md-6">
+       <h3>Погода в Скопье</h3>
+       {% include 'pogoda-style.html' %}
+       {{ pogoda }}
+      </div>
+<div class="col-12 col-sm-12 col-md-6">
+    <h3>Переводчикъ</h3>
+      <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" name="word" placeholder="Введите текст" aria-label="Traslate" type="text">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">В Петровское правописаніе</button>
+        </form>
+      </div>
+      </div>
+
+      </div>
+
+
+        {% if vars["slov"] != None %}
+        <table class="table" style="margin-top: 30px">
+            <thead>
+              <tr>
+                <th scope="col">Современное</th>
+                <th scope="col">Дореволюционное</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+
+                <td>{{ vars["rus"] }}</td>
+                <td>{{ vars["slov"] }}</td>
+              </tr>
+            </tbody>
+        </table>
+        {% endif %}
+
+    </main>
+    {% include 'bootstrap-js.html' %}
+</body></html>

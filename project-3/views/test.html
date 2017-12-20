@@ -1,0 +1,52 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Тестирование</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+
+{% include 'header.html' %}
+
+    <main role="main" class="container" style="padding-top:80px">
+
+          <form class="form-inline my-2 my-lg-0">
+
+            {% for q in quiz %}
+
+            <div class="container card" style="margin-bottom: 20px">
+              <div class="card-body">
+              <div class="row card-header {% if user_answers[loop.index] == q['true'] %} alert-success {% endif %}">
+                  <b> {{ q["rus"].capitalize()  }}</b>
+              </div>
+              <div class="row">
+                <div class="col-12 col-sm-6 text-center" style="padding: 10px 5px"><input name="quiz{{ loop.index }}" type="radio" value="1"> {{ q[1].capitalize() }}</div>
+                <div class="col-12 col-sm-6 text-center" style="padding: 10px 5px"><input name="quiz{{ loop.index }}" type="radio" value="2"> {{ q[2].capitalize() }}</div>
+              </div>
+              {% if user_answers[loop.index] %}
+              <div class="row">
+                  <h6>
+              <span  class="badge badge-primary " style="margin-right: 10px">
+                  Ваш ответ <span class="badge badge-light">{{ user_answers[loop.index]}}</span>
+                </span>
+
+                <span  class="badge badge-success " >
+                    Правильный ответ <span class="badge badge-light">{{ q['true'] }}</span>
+                  </span>
+                  </h6>
+              </div>
+              {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Сдать</button>
+        </form>
+
+    </main>
+    {% include 'bootstrap-js.html' %}
+</body></html>
