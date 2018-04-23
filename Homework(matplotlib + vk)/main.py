@@ -132,49 +132,81 @@ for post in posts:
 lengths.set_xlabel('Длина поста')
 lengths.set_ylabel('Длина комментария')
 
+ages = {}
 for post in posts:
-    ages = []
     if post.get('user'):
         if post['user'].get('age'):
-            ages.append([post['user']['age'], post['length']])
-
-    for age in ages:
-        posts_ages.scatter(age[0], age[1])
+            age = post['user']['age']
+            if ages.get(age):
+                ages[age]['count'] += 1
+                ages[age]['length'] += post['length']
+            else:
+                ages[age] = {
+                    'count': 1,
+                    'length': post['length'],
+                }
+for age in ages:
+    ages[age]['length'] /= ages[age]['count']
+    posts_ages.scatter(age, ages[age]['length'])
 posts_ages.set_xlabel('Возраст')
 posts_ages.set_ylabel('Длина поста')
 
+ages = {}
 for post in posts:
-    ages = []
     for comment in post['comments']:
         if comment.get('user'):
             if comment['user'].get('age'):
-                ages.append([comment['user']['age'], comment['length']])
-
-    for age in ages:
-        comments_ages.scatter(age[0], age[1])
+                age = comment['user']['age']
+                if ages.get(age):
+                    ages[age]['count'] += 1
+                    ages[age]['length'] += comment['length']
+                else:
+                    ages[age] = {
+                        'count': 1,
+                        'length': comment['length'],
+                    }
+for age in ages:
+    ages[age]['length'] /= ages[age]['count']
+    comments_ages.scatter(age, ages[age]['length'])
 comments_ages.set_xlabel('Возраст')
 comments_ages.set_ylabel('Длина комментария')
 
+cities = {}
 for post in posts:
-    ages = []
     if post.get('user'):
         if post['user'].get('city'):
-            ages.append([post['user']['city'], post['length']])
-
-    for age in ages:
-        posts_cities.scatter(age[0], age[1])
+            city = post['user']['city']
+            if cities.get(city):
+                cities[city]['count'] += 1
+                cities[city]['length'] += post['length']
+            else:
+                cities[city] = {
+                    'count': 1,
+                    'length': post['length'],
+                }
+for city in cities:
+    cities[city]['length'] /= cities[city]['count']
+    posts_cities.scatter(city, cities[city]['length'])
 posts_cities.set_xlabel('Город')
 posts_cities.set_ylabel('Длина поста')
 
+cities = {}
 for post in posts:
-    ages = []
     for comment in post['comments']:
         if comment.get('user'):
             if comment['user'].get('city'):
-                ages.append([comment['user']['city'], comment['length']])
-
-    for age in ages:
-        comments_cities.scatter(age[0], age[1])
+                city = comment['user']['city']
+                if cities.get(city):
+                    cities[city]['count'] += 1
+                    cities[city]['length'] += comment['length']
+                else:
+                    cities[city] = {
+                        'count': 1,
+                        'length': comment['length'],
+                    }
+for city in cities:
+    cities[city]['length'] /= cities[city]['count']
+    comments_cities.scatter(city, cities[city]['length'])
 comments_cities.set_xlabel('Город')
 comments_cities.set_ylabel('Длина комментария')
 
