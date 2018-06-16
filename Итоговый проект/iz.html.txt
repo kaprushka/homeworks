@@ -1,0 +1,103 @@
+
+
+<!doctype html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="description" content="">
+
+    <meta name="author" content="">
+
+    <link rel="icon" href="../../../../favicon.ico">
+
+
+
+    <title>Starter Template for Bootstrap</title>
+
+
+
+    <!-- Bootstrap core CSS -->
+
+    <link href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+    <!-- Custom styles for this template -->
+
+    <link href="starter-template.css" rel="stylesheet">
+
+  </head>
+
+
+
+  <body>
+
+
+
+    <main role="main" class="container">
+
+        <h1>Итоговый проект по программированию 2017/2018</h1>
+
+        <p class="text-muted">Веб-приложение: с определённой периодичностью скачивает новые статьи из газеты "Известия" и строит для пользователя график частотности частотных слов культурной тематики за неделю и за месяц. Слова культурной тематики брались из раздела "культура" на главной страничке газеты "Известия".</p>
+
+      <div class="starter-template">
+
+    <p class="lead">Выберите за какой период хотите увидеть статистику словоупотреблений</p>
+
+    <a href="/range=week/" class="btn {% if range != 'week' %} btn-primary {% elif range == 'week' %} btn-success {% endif %}" role="button" aria-pressed="true">Частотные слова за неделю</a>
+
+    <a href="/range=month/" class="btn  {% if range != 'month' %} btn-primary {% elif range == 'month' %} btn-success {% endif %}" role="button" aria-pressed="true">Частотные слова за месяц</a>
+
+    <a href="/" class="btn  {% if range != '' %} btn-primary {% elif range == '' %} btn-success {% endif %}" role="button" aria-pressed="true">Частотные слова за весь период</a>
+
+
+
+        <h2>Графики частности</h2>
+
+        <p class="lead"> </p>
+
+        <h3>Частотные слова культурной тематики</h3>
+
+        <img src = "{{url_for('static', filename='plot' + range + '.png')}}">
+
+        <h3>Наиболее частотные существительные культурной тематики</h3>
+
+        <img src = "{{url_for('static', filename='plot' + range + 'NOUN.png')}}">
+
+
+
+        <h3>Наиболее частотные глаголы культурной тематики</h3>
+
+        <img src = "{{url_for('static', filename='plot' + range + 'INFN.png')}}">
+
+
+
+        <h3>Наиболее частотные наречия культурной тематики</h3>
+
+        <img src = "{{url_for('static', filename='plot' + range + 'ADVB.png')}}">
+
+      </div>
+
+
+
+    </main><!-- /.container -->
+
+
+
+    <!-- Bootstrap core JavaScript
+
+    ================================================== -->
+
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+  </body>
+
+</html>
